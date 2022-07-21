@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-nlp-app-deployment
+  labels:
+    app: simple-nlp-app
+  spec:
+    replicas: 3
+    selector:
+      matchLabels:
+        app: simple-nlp-app
+    template:
+      metadata:
+        labels:
+          app: simple-nlp-app
+      spec:
+        containers:
+        - name: simple-nlp-app
+          image: dattarajrao/simple-nlp-app
+          ports:
+          - containerPort: 1234
